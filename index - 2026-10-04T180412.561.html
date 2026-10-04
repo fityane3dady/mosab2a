@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مسابقة الكتاب المقدس</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Amiri:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--a:#0ea5e9;--b:#2563eb;--t:#0c2a4d;--g:rgba(255,255,255,.88)}
+*{box-sizing:border-box;margin:0;font-family:Cairo,sans-serif}
+body{min-height:100vh;color:var(--t);background:linear-gradient(180deg,#8fd8ff 0%,#c4e9ff 45%,#eaf7ff 100%);background-attachment:fixed}
+[hidden]{display:none!important}
+.box{background:var(--g);border:1px solid #fff;border-radius:24px;box-shadow:0 10px 40px rgba(37,99,235,.15);padding:22px;animation:up .5s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.wrap{max-width:560px;margin:0 auto;padding:16px}
+#auth .lg{text-align:center;margin:18px 0}
+.lg img,.hl img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid #0284c7;box-shadow:0 0 0 3px rgba(14,165,233,.25),0 8px 24px rgba(14,165,233,.45)}
+#auth .lg img{animation:bob 4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}
+.lg h1{margin-top:8px;font-size:22px;color:var(--b)}.lg p{color:#3b6ea5;font-size:14px}
+.sw{display:flex;background:#e0f2fe;border-radius:14px;padding:4px;margin-bottom:16px}
+.sw button{flex:1;border:0;background:none;padding:10px;border-radius:11px;font-weight:600;cursor:pointer;color:#3b6ea5;transition:.3s}
+.sw .on{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.35)}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px;color:#1e4b80}
+input,select{width:100%;padding:12px 14px;border:2px solid #d4ebfb;border-radius:13px;font-size:15px;background:#fff;outline:0;transition:.25s}
+input:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 4px rgba(14,165,233,.15)}
+.pr{width:100%;margin-top:16px;padding:13px;border:0;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 8px 20px rgba(37,99,235,.35);transition:.25s}
+.pr:hover{transform:translateY(-2px)}.pr:active{transform:scale(.98)}.pr:disabled{opacity:.6}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chips span{background:#e0f2fe;color:var(--b);padding:4px 11px;border-radius:20px;font-size:13px;cursor:pointer;direction:ltr}
+.pp{display:flex;align-items:center;gap:12px}.pp img{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#d4ebfb;border:3px solid #fff}
+.idc{margin:18px 0;border-radius:24px;padding:24px;color:#fff;text-align:center;background:linear-gradient(135deg,#0ea5e9,#2563eb 60%,#4f46e5);box-shadow:0 14px 40px rgba(37,99,235,.45);position:relative;overflow:hidden}
+.idc:before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.12);top:-70px;left:-50px}
+.idc .cl{width:46px;height:46px;border-radius:50%;border:2px solid #fff;position:absolute;top:14px;right:14px;object-fit:cover}
+.cph{width:96px;height:96px;border-radius:50%;border:4px solid #fff;object-fit:cover}
+.idc h3{margin:10px 0 14px}.kv{background:rgba(255,255,255,.18);border-radius:13px;padding:10px 14px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+.kv b{direction:ltr;font-size:18px;letter-spacing:.5px}.idc small{display:block;margin-top:14px;opacity:.9}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px}
+.ib{border:0;background:var(--g);padding:8px 14px;border-radius:30px;font-weight:600;color:var(--b);cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(37,99,235,.15)}
+.ib img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.hl{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--b)}.hl img{width:42px;height:42px}
+nav{display:flex;background:var(--g);border-radius:18px;padding:5px;margin-bottom:14px;box-shadow:0 4px 14px rgba(37,99,235,.12)}
+nav button{flex:1;border:0;background:none;padding:11px 4px;border-radius:14px;font-weight:700;color:#3b6ea5;cursor:pointer;transition:.3s}
+nav .on{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.35)}
+.txt{white-space:pre-wrap;line-height:2.1;font-size:21px;font-family:Amiri,'Traditional Arabic',serif;-webkit-text-stroke:.35px}.vn{color:#2563eb;font-family:Cairo,sans-serif;font-size:.7em;font-weight:700;-webkit-text-stroke:0;margin-inline-end:3px}.box h2{color:var(--b);margin-bottom:10px}
+.c{text-align:center}.top{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px}
+.tm{background:#e0f2fe;color:var(--b);padding:2px 14px;border-radius:20px;direction:ltr}.tm.lo{background:#fee2e2;color:#dc2626;animation:pl 1s infinite}
+@keyframes pl{50%{opacity:.5}}
+.bar{height:8px;background:#d4ebfb;border-radius:8px;overflow:hidden;margin-bottom:16px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b));transition:.4s}
+.op{display:block;width:100%;text-align:right;margin-top:10px;padding:13px 16px;border:2px solid #d4ebfb;background:#fff;border-radius:14px;font-size:16px;cursor:pointer;transition:.2s}
+.op:hover{border-color:var(--a)}.op.sel{border-color:var(--b);background:#e0f2fe;font-weight:700}
+.rv{margin-top:12px;padding:12px;border-radius:14px;background:#f8fcff;border-right:5px solid}.rv.ok{border-color:#16a34a}.rv.no{border-color:#dc2626}.rh{display:flex;justify-content:space-between;gap:8px;font-weight:700}.ro{padding:7px 10px;border-radius:9px;margin-top:5px;font-size:14px;background:#fff}.ro.g{background:#dcfce7;color:#166534;font-weight:600}.ro.r{background:#fee2e2;color:#991b1b}.rn{font-size:13px;color:#b45309;margin-top:5px}
+.sc{width:130px;height:130px;border-radius:50%;margin:14px auto;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 10px 30px rgba(37,99,235,.4)}
+.ov{position:fixed;inset:0;background:rgba(12,42,77,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:9}
+.ov .box{background:#fff;width:100%;max-width:440px;max-height:88vh;overflow:auto}
+.hi{display:flex;justify-content:space-between;padding:9px 12px;background:#f0f9ff;border-radius:11px;margin-top:6px;font-size:14px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0c2a4d;color:#fff;padding:11px 20px;border-radius:30px;z-index:99;font-size:14px;max-width:90%;text-align:center}
+.spin{width:36px;height:36px;border:4px solid #d4ebfb;border-top-color:var(--b);border-radius:50%;animation:sp 1s linear infinite;margin:60px auto}@keyframes sp{to{transform:rotate(360deg)}}
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.cd{position:absolute;left:-260px;width:170px;height:52px;background:#fff;border-radius:50px;opacity:.8;will-change:transform;animation:dr linear infinite}
+.cd:before,.cd:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cd:before{width:76px;height:76px;top:-34px;left:26px}.cd:after{width:58px;height:58px;top:-24px;left:92px}
+@keyframes dr{to{transform:translateX(calc(100vw + 560px))}}
+</style>
+</head>
+<body>
+<div class="sky"><i class="cd" style="top:8%;transform:scale(1.1);animation-duration:80s;animation-delay:-10s"></i><i class="cd" style="top:30%;transform:scale(0.8);animation-duration:100s;animation-delay:-60s"></i><i class="cd" style="top:55%;transform:scale(1.3);animation-duration:120s;animation-delay:-30s"></i><i class="cd" style="top:80%;transform:scale(0.9);animation-duration:90s;animation-delay:-5s"></i></div>
+<div class="wrap">
+
+<div id="load"><div class="spin"></div></div>
+
+<!-- ===== الدخول / الاشتراك ===== -->
+<div id="auth" hidden>
+ <div class="lg"><img src="logo.png" alt=""><h1>مسابقة الكتاب المقدس</h1><p>خدمة فتيان إعدادي</p></div>
+ <div class="box">
+  <div class="sw"><button id="tl" class="on">تسجيل الدخول</button><button id="tr">اشتراك جديد</button></div>
+  <div id="fl">
+   <label>اسم المستخدم</label><input id="lu" dir="ltr" autocapitalize="none">
+   <label>الباسورد</label><input id="lp" type="password" dir="ltr">
+   <button class="pr" id="lb">دخول</button>
+  </div>
+  <div id="fr" hidden>
+   <label>الاسم ثلاثي (بالعربي)</label><input id="rn">
+   <label>الاسم بالإنجليزي</label><input id="re" dir="ltr">
+   <label>اسم المستخدم (اختار من المقترحات أو اكتب)</label><input id="ru" dir="ltr" autocapitalize="none">
+   <div class="chips" id="sg"></div>
+   <label>الفصل</label><select id="rg"><option>أولى إعدادي</option><option>تانية إعدادي</option><option>تالتة إعدادي</option></select>
+   <label>رقم الموبايل (عليه واتساب)</label><input id="rph" type="tel" dir="ltr" placeholder="01xxxxxxxxx">
+   <label>الصورة الشخصية</label>
+   <div class="pp"><img id="pv" src="logo.png"><input id="ph" type="file" accept="image/*"></div>
+   <label>الباسورد</label><input id="rp" type="password" dir="ltr">
+   <button class="pr" id="rb">اشترك</button>
+  </div>
+ </div>
+</div>
+
+<!-- ===== كارت الحساب ===== -->
+<div id="card" hidden>
+ <div class="idc"><img src="logo.png" class="cl"><img id="cp" class="cph"><h3 id="cn"></h3>
+  <div class="kv"><span>اسم المستخدم</span><b id="cu"></b></div>
+  <div class="kv"><span>الباسورد</span><b id="cw"></b></div>
+  <small>📸 خد سكرين شوت للكارت ده واحتفظ بيه</small></div>
+ <button class="pr" id="cgo">دخول للمسابقة</button>
+</div>
+
+<!-- ===== الموقع من جوه ===== -->
+<div id="app" hidden>
+ <header>
+  <button class="ib" id="out">⎋ خروج</button>
+  <div class="hl"><img src="logo.png" alt=""></div>
+  <button class="ib" id="pf"><img id="hp" src="logo.png"> حسابي</button>
+ </header>
+ <nav><button class="on" data-t="ch">الإصحاح</button><button data-t="tf">التفسير</button><button data-t="qz">الأسئلة</button></nav>
+ <section id="ch" class="box"></section>
+ <section id="tf" class="box" hidden></section>
+ <section id="qz" class="box" hidden></section>
+</div>
+</div>
+
+<div id="pm" class="ov" hidden><div class="box" id="pb"></div></div>
+<div id="toast" hidden></div>
+
+<script>
+const API='https://script.google.com/macros/s/AKfycbxOxfeCu4THJcMmcrETdOuztOExPNEnvY02PvbmTMD5Xdx3O5PWC4Et7AmqLiM6mFFQEg/exec';   // <<< لينك Apps Script بعد النشر
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let S=JSON.parse(localStorage.bq||'null'),ME=null,PH='',PASS='',T;
+
+async function call(a,d={}){
+  const n=['me','contest','login','suggest'].includes(a)?3:1;
+  for(let i=0;i<n;i++){
+    try{const r=await fetch(API,{method:'POST',body:JSON.stringify({a,...d})});return await r.json();}
+    catch(e){if(i<n-1)await new Promise(z=>setTimeout(z,900));}
+  }
+  return{err:'في مشكلة في الاتصال، جرب تاني'};
+}
+function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(t.k);t.k=setTimeout(()=>t.hidden=true,3500);}
+function show(id){['load','auth','card','app'].forEach(x=>$('#'+x).hidden=x!=id);}
+function fmt(t){t=esc(t);const L=t.split('\n'),ne=L.filter(x=>x.trim()),st=ne.filter(x=>/^\s*[0-9٠-٩]{1,3}[\s.\-:)]/.test(x)).length;
+  if(st>=ne.length/2)return L.map(x=>x.replace(/^(\s*)([0-9٠-٩]{1,3})(?=[\s.\-:)])/,'$1<b class="vn">$2</b>')).join('\n');
+  return t.replace(/(^|\s)([0-9٠-٩]{1,3})(?=\s|$)/g,'$1<b class="vn">$2</b>');}
+function cacheMe(){try{localStorage.bqme=JSON.stringify(ME);}catch(e){}}
+function save(r){localStorage.removeItem('bqme');S={u:r.u,t:r.t};localStorage.bq=JSON.stringify(S);}
+
+/* ---- بدء التشغيل: مفيش تسجيل دخول تاني طالما مخرجش ---- */
+async function boot(){
+  if(!S){show('auth');return;}
+  let c=null;try{c=JSON.parse(localStorage.bqme||'null');}catch(e){}
+  if(c){ME=c;$('#hp').src=c.user.photo;show('app');loadContest();
+    call('me',S).then(r=>{if(r.auth){localStorage.removeItem('bq');localStorage.removeItem('bqme');S=null;show('auth');}else if(!r.err){ME=r;cacheMe();$('#hp').src=r.user.photo;}});return;}
+  show('load');
+  const r=await call('me',S);
+  if(r.auth){localStorage.removeItem('bq');S=null;show('auth');return;}
+  if(r.err){toast(r.err);show('auth');return;}
+  ME=r;cacheMe();$('#hp').src=r.user.photo;show('app');loadContest();
+}
+
+/* ---- تبويبات الدخول/الاشتراك ---- */
+$('#tl').onclick=()=>{$('#tl').className='on';$('#tr').className='';$('#fl').hidden=false;$('#fr').hidden=true;};
+$('#tr').onclick=()=>{$('#tr').className='on';$('#tl').className='';$('#fr').hidden=false;$('#fl').hidden=true;};
+$('#lb').onclick=async()=>{
+  const b=$('#lb');b.disabled=true;
+  const r=await call('login',{u:$('#lu').value.trim(),pass:$('#lp').value});b.disabled=false;
+  if(r.err)return toast(r.err);save(r);boot();
+};
+$('#ph').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;const im=new Image();
+  im.onload=()=>{const c=document.createElement('canvas');c.width=c.height=240;const m=Math.min(im.width,im.height);
+    c.getContext('2d').drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,240,240);PH=c.toDataURL('image/jpeg',.75);$('#pv').src=PH;};
+  im.src=URL.createObjectURL(f);
+};
+$('#re').onchange=async()=>{
+  const r=await call('suggest',{n:$('#re').value});if(!r.list)return;
+  $('#sg').innerHTML=r.list.map(x=>`<span>${esc(x)}</span>`).join('');
+  $$('#sg span').forEach(s=>s.onclick=()=>$('#ru').value=s.textContent);
+  if(r.list[0]&&!$('#ru').value)$('#ru').value=r.list[0];
+};
+$('#rb').onclick=async()=>{
+  if(!PH)return toast('اختار صورة شخصية');
+  const b=$('#rb');b.disabled=true;
+  const d={name:$('#rn').value,nameEn:$('#re').value,u:$('#ru').value.trim(),grade:$('#rg').value,phone:$('#rph').value,photo:PH,pass:$('#rp').value};
+  const r=await call('register',d);b.disabled=false;
+  if(r.err)return toast(r.err);
+  save(r);$('#cp').src=PH;$('#cn').textContent=d.name;$('#cu').textContent=r.u;$('#cw').textContent=d.pass;show('card');
+};
+$('#cgo').onclick=boot;
+$('#out').onclick=()=>{if(confirm('تسجل خروج؟')){localStorage.removeItem('bq');localStorage.removeItem('bqme');S=null;clearInterval(T);show('auth');}};
+
+/* ---- التبويبات الداخلية ---- */
+$$('nav button').forEach(b=>b.onclick=()=>{
+  $$('nav button').forEach(x=>x.classList.toggle('on',x==b));
+  ['ch','tf','qz'].forEach(i=>$('#'+i).hidden=i!=b.dataset.t);
+});
+
+/* ---- المسابقة ---- */
+async function loadContest(){
+  ['ch','tf','qz'].forEach(i=>$('#'+i).innerHTML='<div class="spin"></div>');
+  const r=await call('contest',S);
+  if(r.auth){localStorage.removeItem('bq');localStorage.removeItem('bqme');S=null;return show('auth');}
+  if(r.err||r.none){const m=`<p class="c">${r.err?esc(r.err):'مفيش مسابقة مفتوحة دلوقتي 🌤️<br>استنى المسابقة الجاية'}</p>`;['ch','tf','qz'].forEach(i=>$('#'+i).innerHTML=m);return;}
+  $('#ch').innerHTML=`<h2>${esc(r.title)}</h2><div class="txt">${fmt(r.chapter)}</div>`;
+  $('#tf').innerHTML=`<h2>تفسير ${esc(r.title)}</h2><div class="txt">${r.tafseer?fmt(r.tafseer):'التفسير هينزل قريب'}</div>`;
+  qstate(r);
+}
+function qstate(r){
+  const q=$('#qz');
+  if(r.st=='done')return fin(r);
+  if(r.st=='started')return run(r.id,r.qs,r.left);
+  q.innerHTML=`<div class="c"><h2>كويز ${esc(r.title)}</h2><p>عدد الأسئلة: <b>${r.n}</b></p><p>الدرجة الكلية: <b>${r.tp}</b></p><p>الوقت: <b>${r.minutes}</b> دقيقة</p>
+  <p style="color:#dc2626;margin-top:8px">⚠️ لما تبدأ الوقت هيشتغل، ولازم تسلّم قبل ما يخلص، ومينفعش تعيد الكويز.</p>
+  <button class="pr" id="st">ابدأ الكويز</button></div>`;
+  $('#st').onclick=async()=>{const x=await call('start',{...S,id:r.id});if(x.err)return toast(x.err);x.st=='done'?fin(x):run(r.id,x.qs,x.left);};
+}
+function fin(r){
+  clearInterval(T);
+  const rv=(r.rv||[]).map((x,i)=>{const ok=x.a===x.c;
+    return `<div class="rv ${ok?'ok':'no'}"><div class="rh"><span>${i+1}. ${esc(x.q)}</span><span>${ok?'✅':'❌'} ${ok?x.p:0} / ${x.p}</span></div>`+
+    x.o.map((o,k)=>`<div class="ro${k==x.c?' g':k==x.a?' r':''}">${k==x.c?'✓ ':k==x.a?'✗ ':''}${esc(o)}${k==x.a?' (إجابتك)':''}</div>`).join('')+
+    (x.a<0?'<div class="rn">لم تجب على هذا السؤال</div>':'')+`</div>`;}).join('');
+  $('#qz').innerHTML=`<div class="c"><h2>خلصت الكويز 🎉</h2><div class="sc">${r.score} / ${r.total}</div><p>النتيجة اتسجلت. استنى المسابقة الجاية!</p></div>`+(rv?`<h3 style="margin-top:14px">مراجعة إجاباتك</h3>${rv}`:'');
+  call('me',S).then(m=>{if(!m.err){ME=m;cacheMe();}});
+}
+function run(id,qs,left){
+  let i=0,a=[],end=Date.now()+left*1000;const box=$('#qz');
+  const tick=()=>{const s=Math.max(0,Math.round((end-Date.now())/1000)),e=$('#tm');
+    if(e){e.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');e.classList.toggle('lo',s<30);}
+    if(s<=0)send();};
+  async function send(){
+    clearInterval(T);box.innerHTML='<div class="spin"></div>';
+    const r=await call('submit',{...S,id,ans:a});
+    if(r.err){toast(r.err);return loadContest();}fin(r);
+  }
+  function draw(){
+    const q=qs[i];
+    box.innerHTML=`<div class="top"><span>سؤال ${i+1} / ${qs.length}</span><span id="tm" class="tm"></span></div>
+    <div class="bar"><i style="width:${i/qs.length*100}%"></i></div><h3>${esc(q.q)}</h3><span class="tm" style="font-size:13px">${q.p||1} درجة</span>`+
+    q.o.map((o,k)=>`<button class="op${a[i]===k?' sel':''}" data-k="${k}">${esc(o)}</button>`).join('')+
+    `<button class="pr" id="nx">${i==qs.length-1?'تسليم':'التالي'}</button>`;
+    $$('#qz .op').forEach(b=>b.onclick=()=>{a[i]=+b.dataset.k;$$('#qz .op').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');});
+    $('#nx').onclick=()=>{if(i==qs.length-1){if(confirm('تسليم الإجابات؟'))send();}else{i++;draw();}};
+    tick();
+  }
+  clearInterval(T);T=setInterval(tick,300);draw();
+}
+
+/* ---- البروفايل ---- */
+function prof(){
+  const u=ME.user;
+  $('#pb').innerHTML=`<div class="c"><img src="${u.photo}" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid #0284c7">
+  <h2 style="margin-top:8px">${esc(u.name)}</h2><p dir="ltr">@${esc(u.username)}</p><p>${esc(u.grade)}</p>
+  <div class="sc" style="width:110px;height:110px;font-size:24px">${ME.total} / ${ME.max}</div><p>مجموع نقاطك</p></div>
+  <h3 style="margin:14px 0 4px">المسابقات اللي فاتت</h3>`+
+  (ME.hist.length?ME.hist.slice().reverse().map(h=>`<div class="hi"><span>${esc(h.title)}</span><b>${h.score} / ${h.total}</b></div>`).join(''):'<p class="c">لسه ما شاركتش في مسابقات</p>')+
+  `<button class="pr" id="pc">إغلاق</button>`;
+  $('#pc').onclick=()=>$('#pm').hidden=true;
+}
+$('#pf').onclick=()=>{
+  prof();$('#pm').hidden=false;
+  call('me',S).then(m=>{if(!m.err){ME=m;cacheMe();if(!$('#pm').hidden)prof();}});
+};
+$('#pm').onclick=e=>{if(e.target.id=='pm')$('#pm').hidden=true;};
+
+boot();
+</script>
+</body>
+</html>
