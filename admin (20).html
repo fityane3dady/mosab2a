@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة الأدمن - مسابقة الكتاب المقدس</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--a:#0ea5e9;--b:#2563eb;--t:#0c2a4d}
+*{box-sizing:border-box;margin:0;font-family:Cairo,sans-serif}
+body{min-height:100vh;color:var(--t);background:linear-gradient(180deg,#8fd8ff 0%,#c4e9ff 45%,#eaf7ff 100%);background-attachment:fixed;padding:14px 14px 90px}
+[hidden]{display:none!important}.w{max-width:780px;margin:0 auto}
+.tp{display:flex;align-items:center;gap:12px;margin-bottom:12px}.tp h1{flex:1;color:var(--b);font-size:22px}
+.lg{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #0284c7;box-shadow:0 0 0 3px rgba(14,165,233,.25)}
+.box{background:rgba(255,255,255,.9);border:1px solid #fff;border-radius:20px;box-shadow:0 8px 28px rgba(37,99,235,.13);padding:18px;margin-bottom:14px;animation:up .35s}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+h2{color:var(--b);font-size:18px;margin-bottom:8px}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px;color:#1e4b80}
+input,select,textarea{width:100%;padding:11px 13px;border:2px solid #d4ebfb;border-radius:12px;font-size:15px;background:#fff;outline:0;transition:.2s}
+input:focus,textarea:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 4px rgba(14,165,233,.14)}textarea{min-height:120px;resize:vertical}
+.pr,.sm{border:0;border-radius:12px;color:#fff;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--a),var(--b));transition:.2s}
+.pr{padding:12px 20px;font-size:16px;box-shadow:0 6px 16px rgba(37,99,235,.3)}.pr:active,.sm:active{transform:scale(.97)}.pr:disabled{opacity:.6}
+.sm{padding:7px 13px;font-size:13px}.sm.r{background:#ef4444}.sm.g{background:#64748b}.sm.o{background:#f59e0b}.sm.k{background:#10b981}
+.tabs{display:flex;background:rgba(255,255,255,.9);border-radius:16px;padding:4px;margin-bottom:14px;position:sticky;top:8px;z-index:6;box-shadow:0 4px 14px rgba(37,99,235,.12)}
+.tabs button{flex:1;border:0;background:none;padding:10px 4px;border-radius:12px;font-weight:700;color:#3b6ea5;cursor:pointer;font-size:14px}
+.tabs .on{background:linear-gradient(135deg,var(--a),var(--b));color:#fff}
+.g2{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chips button{border:2px dashed #93c5fd;background:#f0f9ff;color:var(--b);border-radius:12px;padding:8px 12px;font-weight:700;cursor:pointer;font-size:13px}
+.chips button:hover{background:#dbeafe}
+.qhd{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.q{background:#f6fbff;border:1px solid #d4ebfb;border-radius:16px;padding:12px;margin-top:12px;animation:up .3s}
+.qh{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}.qh select{flex:1;min-width:130px;padding:8px}
+.qn{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex:none}
+.qh .pp{width:70px;padding:8px}.qh .sm{padding:7px 10px}
+.or{display:flex;gap:8px;align-items:center;margin-top:6px}.or input[type=radio]{width:22px;height:22px;padding:0;flex:none;margin:0}.or span{flex:none}
+.bd{font-size:12px;padding:2px 10px;border-radius:20px;background:#dcfce7;color:#15803d;font-weight:600}.bd.x{background:#e2e8f0;color:#64748b}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;background:#f0f9ff;border-radius:14px;margin-top:8px;flex-wrap:wrap}
+.ac{display:flex;gap:6px;flex-wrap:wrap}
+.bar{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:752px;display:flex;gap:10px;align-items:center;background:#fff;border-radius:18px;padding:10px 14px;box-shadow:0 8px 30px rgba(12,42,77,.25);z-index:8}
+.bar .pr{flex:1}.bar label{margin:0;display:flex;gap:6px;align-items:center;white-space:nowrap}.bar input{width:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid #e0f2fe;text-align:right}.ov{overflow-x:auto}
+#ts{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:#dc2626;color:#fff;padding:10px 20px;border-radius:30px;z-index:99;font-size:14px;max-width:92%;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}#ts.ok{background:#16a34a}
+.sk{text-align:center;padding:24px;color:#3b6ea5}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="tp"><img class="lg" src="logo.png" alt=""><h1>لوحة الأدمن</h1><button class="sm g" id="lo" hidden>خروج</button></div>
+
+<div id="lg" class="box">
+ <label>باسورد الأدمن</label><input id="pw" type="password" dir="ltr">
+ <button class="pr" id="go" style="width:100%;margin-top:14px">دخول</button>
+</div>
+
+<div id="main" hidden>
+ <div class="tabs"><button data-t="t1" class="on">➕ مسابقة</button><button data-t="t2">📚 المسابقات</button><button data-t="t3">👦 المشتركين</button></div>
+
+ <section id="t1">
+  <div class="box">
+   <h2 id="ft">مسابقة جديدة</h2>
+   <div class="g2"><div><label>عنوان الإصحاح (مثال: إنجيل يوحنا - الإصحاح 3)</label><input id="ti"></div><div><label>الوقت (دقيقة)</label><input id="mn" type="number" value="5" min="1"></div></div>
+   <label>نص الإصحاح (انسخه والصقه)</label><textarea id="ch"></textarea>
+   <label>التفسير</label><textarea id="tf"></textarea>
+  </div>
+  <div class="box">
+   <div class="qhd"><h2>الأسئلة <span class="bd" id="qc">0</span></h2><button class="sm" id="pst">📋 لصق أسئلة من ChatGPT</button></div>
+   <div id="pp" hidden style="margin-top:10px">
+    <small>السؤال في سطر واختياراته تحته، وسطر فاضي بين كل سؤال. علّم الصح بـ ✅ أو اكتب "الإجابة: ب".</small>
+    <textarea id="pt" style="min-height:140px;margin-top:6px"></textarea>
+    <div class="or"><label style="margin:0">الدرجة لكل سؤال</label><input id="pd" type="number" min="0.5" step="0.5" value="1" style="width:80px"><button class="sm k" id="pa" style="margin-right:auto">إضافة الأسئلة</button></div>
+   </div>
+   <div id="qs"></div>
+   <div class="chips" id="add"></div>
+  </div>
+ </section>
+
+ <section id="t2" hidden><div class="box"><h2>المسابقات</h2><div id="cl" class="sk">جاري التحميل…</div></div><div class="box" id="gp" hidden></div></section>
+ <section id="t3" hidden><div class="box"><h2>المشتركين (<span id="uc">0</span>)</h2><input id="us" placeholder="🔍 بحث بالاسم أو اليوزر" style="margin-bottom:8px"><div class="ov"><table id="ul"></table></div></div></section>
+
+ <div class="bar" id="sbar"><label><input type="checkbox" id="pub" checked> انشر فورًا</label><button class="sm g" id="cn" hidden>إلغاء التعديل</button><button class="pr" id="sv">حفظ المسابقة</button></div>
+</div>
+</div>
+<div id="ts" hidden></div>
+
+<script>
+const API='https://script.google.com/macros/s/AKfycbxOxfeCu4THJcMmcrETdOuztOExPNEnvY02PvbmTMD5Xdx3O5PWC4Et7AmqLiM6mFFQEg/exec';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let P=sessionStorage.ap||'',EID=null,QN=0,DATA=null;
+function toast(m,ok){const t=$('#ts');t.textContent=m;t.className=ok?'ok':'';t.hidden=false;clearTimeout(t.k);t.k=setTimeout(()=>t.hidden=true,3500);}
+async function call(a,d={}){
+  const n=['adminList','adminGet','adminSubs'].includes(a)?2:1;
+  for(let i=0;i<n;i++){try{const c=new AbortController(),k=setTimeout(()=>c.abort(),40000);const r=await fetch(API,{method:'POST',body:JSON.stringify({a,p:P,...d}),signal:c.signal});clearTimeout(k);return await r.json();}catch(e){}}
+  return{err:'مشكلة في الاتصال، جرب تاني'};
+}
+function tab(t){$$('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));['t1','t2','t3'].forEach(i=>$('#'+i).hidden=i!=t);$('#sbar').hidden=t!='t1';}
+$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.t));
+
+async function load(){
+  $('#cl').innerHTML='جاري التحميل…';
+  const r=await call('adminList');
+  if(r.err){if(/باسورد/.test(r.err)){sessionStorage.removeItem('ap');$('#lg').hidden=false;$('#main').hidden=true;$('#lo').hidden=true;}toast(r.err);$('#cl').textContent=r.err;return;}
+  DATA=r;$('#lg').hidden=true;$('#main').hidden=false;$('#lo').hidden=false;
+  $('#cl').className='';
+  $('#cl').innerHTML=r.contests.length?r.contests.map(c=>`<div class="row"><div><b>${esc(c.title)}</b> <span class="bd ${c.active?'':'x'}">${c.active?'مفتوحة':'مقفولة'}</span><br><small>${c.n} سؤال · شارك ${c.parts}${c.pend?` · <b style="color:#d97706">⏳ ${c.pend} إجابة مستنية تصحيح</b>`:''}</small></div>
+   <div class="ac">${c.man?`<button class="sm k" onclick="gr(${c.id})">تصحيح</button>`:''}<button class="sm o" onclick="ed(${c.id})">تعديل</button>${c.active?`<button class="sm g" onclick="st(${c.id},0)">قفل</button>`:`<button class="sm" onclick="st(${c.id},1)">نشر</button>`}<button class="sm r" onclick="dl(${c.id})">حذف</button></div></div>`).join(''):'<p>لسه مفيش مسابقات</p>';
+  users();
+}
+function users(){
+  if(!DATA)return;const q=$('#us').value.trim().toLowerCase(),u=DATA.users.filter(x=>!q||(x.name+' '+x.username).toLowerCase().includes(q));
+  $('#uc').textContent=DATA.users.length;
+  $('#ul').innerHTML='<tr><th>الاسم</th><th>اليوزر</th><th>الفصل</th><th>الموبايل</th><th>النقاط</th></tr>'+u.map(x=>`<tr><td>${esc(x.name)}</td><td dir="ltr">${esc(x.username)}</td><td>${esc(x.grade)}</td><td dir="ltr">${esc(x.phone)}</td><td>${x.total}</td></tr>`).join('');
+}
+$('#us').oninput=users;
+$('#go').onclick=()=>{P=$('#pw').value;sessionStorage.ap=P;load();};
+$('#pw').onkeydown=e=>{if(e.key=='Enter')$('#go').click();};
+$('#lo').onclick=()=>{sessionStorage.removeItem('ap');P='';location.reload();};
+async function st(id,on){const r=await call('adminSet',{id,on});r.err?toast(r.err):(toast(on?'اتنشرت ✅':'اتقفلت',1),load());}
+async function dl(id){if(!confirm('حذف المسابقة نهائيًا؟'))return;const r=await call('adminDel',{id});r.err?toast(r.err):(toast('اتحذفت',1),load());}
+
+/* ---- بناء الأسئلة ---- */
+const TY={mcq:'اختر من متعدد',tf:'صح وغلط',match:'توصيل',order:'ترتيب',fillA:'أكمل (تصحيح تلقائي)',fillM:'أكمل (تصحيح يدوي)'};
+const ICO={mcq:'🔘',tf:'✔️',match:'🔗',order:'↕️',fillA:'✏️',fillM:'📝'};
+function tyOf(q){if(q.t=='match')return'match';if(q.t=='order')return'order';if(q.t=='fill')return q.auto===false?'fillM':'fillA';if(q.o&&q.o.length==2&&q.o[0]=='صح'&&q.o[1]=='خطأ')return'tf';return'mcq';}
+function el(h){const t=document.createElement('div');t.innerHTML=h;return t.firstChild;}
+function addRowTo(w,t,v){
+  const r=el(t=='match'?'<div class="or"><input class="ml" placeholder="العنصر"><span>↔</span><input class="mr2" placeholder="الإجابة"></div>':t=='mcq'?`<div class="or"><input type="radio" name="${w.dataset.n}"><input class="oo" placeholder="اختيار"></div>`:'<div class="or"><input class="oi" placeholder="عنصر"></div>'),i=r.querySelectorAll('input[type=text],input:not([type])');
+  if(t=='match'){i[0].value=v?v[0]:'';i[1].value=v?v[1]:'';}else i[0].value=v||'';
+  w.insertBefore(r,w.querySelector('.addr'));return r;
+}
+function fillBody(d,t,q){
+  const w=d.querySelector('.bd2');q=q||{};w.dataset.n='r'+(++QN);
+  if(t=='tf'){w.innerHTML='<label>الإجابة الصح</label>'+['صح','خطأ'].map((x,i)=>`<div class="or"><input type="radio" name="${w.dataset.n}"${(q.c||0)==i?' checked':''}><b>${x}</b></div>`).join('');}
+  else if(t=='mcq'||t=='match'||t=='order'){
+    w.innerHTML=`<label>${t=='mcq'?'الاختيارات (علّم الإجابة الصح)':t=='match'?'كل عنصر وإجابته الصح (الولد هيوصّلهم)':'اكتب العناصر بالترتيب الصح (الولد هيشوفها متلخبطة)'}</label><button class="sm g addr" type="button">+ إضافة</button>`;
+    w.querySelector('.addr').onclick=()=>addRowTo(w,t).querySelector('input[type=text],input:not([type=radio])').focus();
+    const it=t=='mcq'?(q.o||[]):t=='match'?(q.pairs||[]):(q.items||[]);
+    for(let i=0;i<Math.max(t=='mcq'?4:3,it.length);i++){const r=addRowTo(w,t,it[i]);if(t=='mcq'&&q.c==i)r.querySelector('input[type=radio]').checked=true;}
+    if(t=='mcq'&&!w.querySelector('input[type=radio]:checked'))w.querySelector('input[type=radio]').checked=true;}
+  else{w.innerHTML='<label>'+(t=='fillA'?'الإجابة الصحيحة (لو في أكتر من إجابة مقبولة افصل بينهم بعلامة | )':'إجابة نموذجية تظهر لك وقت التصحيح (اختياري) — الدرجة بتحطها إنت بعد التسليم')+'</label><input class="fa">';
+    w.querySelector('.fa').value=(q.a||[]).join(' | ');}
+}
+function renum(){
+  const b=$$('.q');b.forEach((x,i)=>x.querySelector('.qn').textContent=i+1);
+  $('#qc').textContent=b.length+' سؤال · '+Math.round(b.reduce((s,x)=>s+(+x.querySelector('.pp').value||0),0)*100)/100+' درجة';
+}
+function addQ(q,t0,noscroll){
+  q=q||{};const t=t0||tyOf(q),d=document.createElement('div');d.className='q';
+  d.innerHTML='<div class="qh"><span class="qn"></span><select class="ty">'+Object.keys(TY).map(k=>`<option value="${k}"${k==t?' selected':''}>${ICO[k]} ${TY[k]}</option>`).join('')+`</select><input class="pp" type="number" min="0.5" step="0.5" value="${q.p||1}" title="الدرجة"><button class="sm g" type="button" data-m="u">▲</button><button class="sm g" type="button" data-m="d">▼</button><button class="sm g" type="button" data-m="c">⧉</button><button class="sm r" type="button" data-m="x">✕</button></div><input class="qq" placeholder="نص السؤال"><div class="bd2"></div>`;
+  d.querySelector('.qq').value=q.q||'';fillBody(d,t,q);
+  d.querySelector('.ty').onchange=e=>fillBody(d,e.target.value,{});
+  d.querySelector('.pp').oninput=renum;
+  d.querySelector('.qh').onclick=e=>{const m=e.target.dataset&&e.target.dataset.m;if(!m)return;
+    if(m=='u'&&d.previousElementSibling)d.parentNode.insertBefore(d,d.previousElementSibling);
+    else if(m=='d'&&d.nextElementSibling)d.parentNode.insertBefore(d.nextElementSibling,d);
+    else if(m=='c'){try{const o=readQ(d);if(o){addQ(o,null,1);const n=$('#qs').lastElementChild;d.after(n);}}catch(x){toast('كمّل السؤال الأول');}}
+    else if(m=='x'&&confirm('حذف السؤال؟'))d.remove();
+    renum();};
+  $('#qs').appendChild(d);renum();
+  if(!noscroll){d.scrollIntoView({behavior:'smooth',block:'center'});d.querySelector('.qq').focus({preventScroll:true});}
+}
+function readQ(b){
+  const t=b.querySelector('.ty').value,q=b.querySelector('.qq').value.trim(),w=b.querySelector('.bd2'),o={q,p:Math.max(.5,+b.querySelector('.pp').value||1)};
+  const val=s=>[...w.querySelectorAll(s)].map(x=>x.value.trim()).filter(Boolean);
+  if(t=='mcq'){const op=[];let c=-1;w.querySelectorAll('.or').forEach(r=>{const x=r.querySelector('.oo');if(!x||!x.value.trim())return;if(r.querySelector('input[type=radio]').checked)c=op.length;op.push(x.value.trim());});
+    if(!q&&!op.length)return null;if(!q||op.length<2)throw 'كمّل السؤال واختيارين على الأقل';if(c<0)throw 'علّم الإجابة الصح في سؤال: '+q;return Object.assign(o,{t:'mcq',o:op,c});}
+  if(t=='tf'){if(!q)return null;const c=[...w.querySelectorAll('input[type=radio]')].findIndex(x=>x.checked);return Object.assign(o,{t:'mcq',o:['صح','خطأ'],c:Math.max(0,c)});}
+  if(t=='match'){const pr=[...w.querySelectorAll('.or')].map(r=>[r.querySelector('.ml').value.trim(),r.querySelector('.mr2').value.trim()]).filter(x=>x[0]&&x[1]);
+    if(!q&&!pr.length)return null;if(!q||pr.length<2)throw 'سؤال التوصيل محتاج نص وزوجين على الأقل';return Object.assign(o,{t:'match',pairs:pr});}
+  if(t=='order'){const it=val('.oi');if(!q&&!it.length)return null;if(!q||it.length<2)throw 'سؤال الترتيب محتاج نص وعنصرين على الأقل';return Object.assign(o,{t:'order',items:it});}
+  if(!q)return null;const x=(val('.fa')[0]||'').split('|').map(s=>s.trim()).filter(Boolean);
+  if(t=='fillA'&&!x.length)throw 'اكتب الإجابة الصحيحة لسؤال: '+q;return Object.assign(o,{t:'fill',auto:t=='fillA',a:x});
+}
+function collect(){return $$('.q').map(readQ).filter(Boolean);}
+$('#add').innerHTML=Object.keys(TY).map(k=>`<button data-k="${k}">${ICO[k]} + ${TY[k]}</button>`).join('');
+$('#add').onclick=e=>{const k=e.target.dataset.k;if(k)addQ({},k);};
+$('#pst').onclick=()=>{$('#pp').hidden=!$('#pp').hidden;if(!$('#pp').hidden)$('#pt').focus();};
+
+/* ---- تحليل الأسئلة المنسوخة ---- */
+function parse(t){
+  const clean=x=>x.replace(/[*#]/g,'').trim(),MK=/[✅✔☑]|\(صح\)|\(correct\)/gi;
+  const blocks=t.replace(/\r/g,'').split(/\n\s*\n/).map(b=>b.split('\n').map(x=>x.trim()).filter(Boolean)).filter(b=>b.length>=3);
+  return blocks.map(b=>{
+    let ans=null;const L=[];
+    b.forEach(x=>{const m=x.match(/^[*#\s]*(?:الإجابة|الاجابة|الجواب|الاجابه|answer)[^:：]*[:：]\s*(.+)$/i);if(m)ans=clean(m[1].replace(MK,''));else L.push(x);});
+    const q=clean(L[0]).replace(/^(?:سؤال\s*)?[0-9٠-٩]+\s*[.\-:)]\s*/,'').replace(/^سؤال\s*[:：]\s*/,'');
+    let c=-1;
+    const o=L.slice(1).map((x,i)=>{
+      const ok=/[✅✔☑]|\(صح\)|\(correct\)/i.test(x);
+      x=clean(x.replace(MK,'')).replace(/^(?:[-•●▪]\s*|\(?(?:[أ-ي]|[a-dA-D]|[0-9٠-٩]{1,2})\s*[.)\-:]\s*)/,'');
+      if(ok&&c<0)c=i;return x;
+    });
+    if(ans&&c<0){
+      const m=ans.match(/^\(?([أبجدabcd1-4١-٤])\)?(?:[\s.\-:)]|$)/i);
+      if(m){const k=m[1].toLowerCase();c=Math.max('أبجد'.indexOf(k),'abcd'.indexOf(k),'1234'.indexOf(k),'١٢٣٤'.indexOf(k));}
+      if(c<0)c=o.findIndex(x=>x&&(ans.includes(x)||x.includes(ans)));
+    }
+    return{q,o,c:c<0?0:c};
+  });
+}
+
+$('#pa').onclick=()=>{
+  const r=parse($('#pt').value),p=Math.max(.5,+$('#pd').value||1);
+  if(!r.length)return toast('مفيش أسئلة اتعرفت. السؤال في سطر واختياراته تحته (اختيارين على الأقل) وسطر فاضي بين كل سؤال.');
+  $$('.q').forEach(b=>{if(!b.querySelector('.qq').value.trim()&&![...b.querySelectorAll('.bd2 input')].some(x=>x.type!='radio'&&x.value.trim()))b.remove();});
+  r.forEach(q=>addQ({...q,p},null,1));$('#pt').value='';$('#pp').hidden=true;renum();
+  toast('اتضاف '+r.length+' سؤال ✅ راجع الإجابة الصح لكل سؤال',1);
+};
+
+function reset(){EID=null;['ti','ch','tf'].forEach(i=>$('#'+i).value='');$('#mn').value=5;$('#qs').innerHTML='';addQ({},'mcq',1);$('#pub').checked=true;$('#ft').textContent='مسابقة جديدة';$('#sv').textContent='حفظ المسابقة';$('#cn').hidden=true;}
+async function ed(id){
+  const r=await call('adminGet',{id});if(r.err)return toast(r.err);const c=r.c;
+  EID=id;$('#ti').value=c.title;$('#ch').value=c.chapter;$('#tf').value=c.tafseer;$('#mn').value=c.minutes;
+  $('#qs').innerHTML='';c.questions.forEach(q=>addQ(q,null,1));renum();$('#pub').checked=false;
+  $('#ft').textContent='✏️ تعديل: '+c.title;$('#sv').textContent='حفظ التعديلات';$('#cn').hidden=false;tab('t1');scrollTo({top:0,behavior:'smooth'});
+}
+$('#cn').onclick=reset;
+$('#sv').onclick=async()=>{
+  let questions;try{questions=collect();}catch(e){return toast(String(e));}
+  if(!$('#ti').value.trim()||!$('#ch').value.trim())return toast('اكتب العنوان ونص الإصحاح');
+  if(!questions.length)return toast('أضف سؤال واحد على الأقل');
+  const b=$('#sv');b.disabled=true;b.textContent='جاري الحفظ…';
+  const body={pub:$('#pub').checked,c:{title:$('#ti').value.trim(),chapter:$('#ch').value.trim(),tafseer:$('#tf').value.trim(),minutes:$('#mn').value,questions}};
+  const r=EID?await call('adminUpdate',{...body,id:EID}):await call('adminSave',body);
+  b.disabled=false;b.textContent=EID?'حفظ التعديلات':'حفظ المسابقة';if(r.err)return toast(r.err);
+  toast('تم الحفظ ✅',1);reset();tab('t2');load();
+};
+
+/* ---- التصحيح اليدوي ---- */
+async function gr(id){
+  const g=$('#gp');g.hidden=false;g.innerHTML='<div class="sk">جاري التحميل…</div>';
+  const r=await call('adminSubs',{id});if(r.err){g.hidden=true;return toast(r.err);}
+  g.innerHTML=`<div class="qhd"><h2>✍️ تصحيح الأسئلة المكتوبة</h2><button class="sm g" id="gx">إغلاق</button></div>`+(r.mq.map((q,qi)=>`<div class="q"><b>${esc(q.q)}</b> <span class="bd">من ${q.p}</span>${q.model?`<div style="font-size:13px;color:#15803d">النموذج: ${esc(q.model)}</div>`:''}`+
+   (r.subs.length?r.subs.map(s=>`<div class="row"><div style="flex:1"><b>${esc(s.name)}</b><br>${esc(s.ans[qi])||'<i>لم يجب</i>'}</div><div class="ac"><input type="number" min="0" max="${q.p}" step="0.5" value="${s.g[qi]}" style="width:80px" placeholder="الدرجة" data-u="${esc(s.username)}" data-i="${q.i}" data-id="${id}" onchange="sg(this)"><span></span></div></div>`).join(''):'<p>لسه محدش سلّم</p>')+'</div>').join('')||'<p>مفيش أسئلة بتصحيح يدوي في المسابقة دي</p>');
+  $('#gx').onclick=()=>{g.hidden=true;load();};g.scrollIntoView({behavior:'smooth'});
+}
+async function sg(x){const r=await call('adminGrade',{id:x.dataset.id,username:x.dataset.u,i:+x.dataset.i,pts:x.value});x.nextSibling.textContent=r.err?'❌':'✔';if(r.err)toast(r.err);}
+
+addQ({},'mcq',1);
+if(P)load();
+</script>
+</body>
+</html>
